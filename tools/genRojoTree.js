@@ -47,6 +47,12 @@ function getVirtualPath(filepath) {
   };
 }
 
+function loadConfig() {
+  const configPath = path.join(process.cwd(), "genrojotree.config.json");
+  if (!fs.existsSync(configPath)) return null;
+  return JSON.parse(fs.readFileSync(configPath, "utf-8"));
+}
+
 const tree = {
   name: "genrojotree",
   tree: {
